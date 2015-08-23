@@ -1,0 +1,300 @@
+<!doctype html>
+<html> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title> Social Media Landing Page</title>
+
+	<style>
+
+	#blanket {
+   background-color:#111;
+   opacity: 0.65;
+   *background:none;
+   position:absolute;
+   z-index: 9001;
+   top:0px;
+   left:0px;
+   width:100%;
+}
+
+#popUpDiv {
+	position:absolute;
+	background:url(riskad1.png) no-repeat;
+	width:560px;
+	height:500px;
+	border:5px solid #000;
+	z-index: 9002;
+}
+
+#popUpDiv a {position:relative; top:20px; left:20px}
+
+		.head{
+			width: 100%;
+			height: 30%;
+			padding-bottom: 5px;
+			margin: 0;
+		}
+
+		nav{
+			float: left;
+			width:100%;
+
+		}
+
+
+
+		ul {
+        float: right;
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+    	padding: 0;
+    }
+
+    .navi{
+    	display: inline-block;
+    	float: right;
+    	margin-right: 10px;
+    
+    	
+    }
+
+    a{
+    	color: white;
+    	text-decoration: none;
+    	font-size: 20px;
+    }
+
+    img{
+    	margin-left: 5px;
+    }
+
+
+
+	body{
+		background-color: #252a3d;
+	}
+
+	.welcome{
+		float: left;
+		width: 100%;
+		height: 40%;
+		font-size: 26px;
+		color: white;
+		text-align: center;
+		padding-top: 30px;
+		border: none;
+
+	}
+
+
+	.para{
+		float: left;
+		color:#2E90D7;
+		display: inline-block;
+		font-size:30px;
+		margin-top: 100px;
+		padding-left: 10px;
+		width:540px;
+		height:60px;
+	}
+
+	input[type=text], textarea {
+  		background-color: white;
+  		height: 40px;
+  		width:300px;
+		}
+
+
+	.message {
+  		height: 40px;
+		}
+
+	.form {
+		float:right;
+		border-radius: 50%;
+    	behavior: url(PIE.htc);
+    	display: inline-block;
+		border: solid 3px;
+		border-color: white;
+		color:white;
+		text-align: center;
+		padding: 5px;
+  		margin-top: 100px;
+  		width:40%;
+  		height:380px;
+  		background-color: #2E90D7;
+		}	
+
+
+			footer{
+  			padding: 5px;
+  			color:white;
+  			text-align: center;
+  			margin-top:80%;
+  			margin-bottom: 5px;
+  		}	
+
+
+  		.fixed-block img{
+      	width: 2%;
+      	height:2%;
+      }
+
+      .bird {
+      	width: 30px;
+      	height:30px;
+      }
+
+
+
+	</style>
+
+</head>
+<body onload="popup('popUpDiv')">
+      
+      <div class="head"><header> <nav>
+          <ul>
+          	 <li class="navi"><a href="http://www.derivatives.com/company/contact.htm">Contact Us</a></li>
+            <li class="navi"><a href="http://www.derivatives.com">Home</a></li>
+          </ul>
+        </nav>
+     
+    
+        <img src="Imaginelogo1.png" width = "170px"></header></div>
+
+        <div class= "welcome"> <img class="bird" src="twitterbird.png"><h1>Welcome to the home of real-time risk management solutions!</h1></div>
+
+        <div class="para"><p>Imagine delivers tailored front-to-back solutions for every need – as rapidly as required. For improved portfolio performance, limits- monitoring, stress testing, intra-day risk reports, firm-wide risk aggregation and more – contact Imagine.</p></div>
+
+
+
+
+        <div class="form"><h3>Request a Demo</h3>
+
+        <form>
+        Your name:<br>
+        <input type="text" name="name"><br>
+        Your e-mail:<br>
+        <input type="text" name="e-mail"><br>
+        Message:<br>
+        <textarea name="Message"></textarea><br>
+
+        <button>Send</button>
+      </form></div>
+
+
+
+
+<footer>
+		<p> Thanks for visiting!</p>					
+        <div class="fixed-block"><span><a href="http://www.twitter.com"><img src="twitterpop.png" alt= Go to Twitter!><a href="http://www.linkedin.com"><img src="linkedinpop.png" alt= Go to Linkedin!></span></div></center>
+   </footer>
+
+<!-- / POPUP-->   
+         <div id="blanket" style="display:none;"></div>
+	<div id="popUpDiv" style="display:none;">
+    
+    	<a href="#" onclick="popup('popUpDiv')" >X </a>
+	</div>	
+  
+<!-- / POPUP-->     
+  
+    
+    
+    
+    <!-- end #mainContent --></div>
+<!-- end #container --></div>
+
+
+
+
+
+
+
+
+<script>
+	function toggle(div_id) {
+	var el = document.getElementById(div_id);
+	if ( el.style.display == 'none' ) {	el.style.display = 'block';}
+	else {el.style.display = 'none';}
+}
+function blanket_size(popUpDivVar) {
+	if (typeof window.innerWidth != 'undefined') {
+		viewportheight = window.innerHeight;
+	} else {
+		viewportheight = document.documentElement.clientHeight;
+	}
+	if ((viewportheight > document.body.parentNode.scrollHeight) && (viewportheight > document.body.parentNode.clientHeight)) {
+		blanket_height = viewportheight;
+	} else {
+		if (document.body.parentNode.clientHeight > document.body.parentNode.scrollHeight) {
+			blanket_height = document.body.parentNode.clientHeight;
+		} else {
+			blanket_height = document.body.parentNode.scrollHeight;
+		}
+	}
+	var blanket = document.getElementById('blanket');
+	blanket.style.height = blanket_height + 'px';
+	var popUpDiv = document.getElementById(popUpDivVar);
+	popUpDiv_height=blanket_height/2-200;//200 is half popup's height
+	popUpDiv.style.top = popUpDiv_height + 'px';
+}
+function window_pos(popUpDivVar) {
+	if (typeof window.innerWidth != 'undefined') {
+		viewportwidth = window.innerHeight;
+	} else {
+		viewportwidth = document.documentElement.clientHeight;
+	}
+	if ((viewportwidth > document.body.parentNode.scrollWidth) && (viewportwidth > document.body.parentNode.clientWidth)) {
+		window_width = viewportwidth;
+	} else {
+		if (document.body.parentNode.clientWidth > document.body.parentNode.scrollWidth) {
+			window_width = document.body.parentNode.clientWidth;
+		} else {
+			window_width = document.body.parentNode.scrollWidth;
+		}
+	}
+	var popUpDiv = document.getElementById(popUpDivVar);
+	window_width=window_width/2-200;//200 is half popup's width
+	popUpDiv.style.left = window_width + 'px';
+}
+function popup(windowname) {
+	blanket_size(windowname);
+	window_pos(windowname);
+	toggle('blanket');
+	toggle(windowname);		
+}
+
+</script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

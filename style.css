@@ -1,0 +1,23 @@
+h1 {
+	color:green;
+	text-align: center;
+	font-family: georgia;
+}
+h2 {
+	color:black;
+	text-align: center
+}
+
+p {
+	line-height: 19px
+	text-align:left;
+	font-family: georgia
+}
+
+h3 {
+	text-transform: uppercase;
+}
+
+ul {
+	list-style-type: square;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+
+  <body onload="startTime()">
+    <div id="txt"></div>
+
+
+    <script>
+
+   
+
+
+
+      function startTime() {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        changecolor(s);
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML = h+":"+m+":"+s;
+        var t = setTimeout(function(){
+          // run this code in here
+          startTime()
+        }, 500);
+        
+      }
+
+       //name the function that accepts one argument 
+    //use % to check if seconds are even or odd
+    //if even, change background to pink
+    // if odd, change to green
+
+
+
+    function changecolor(i) {
+        if (i % 2=== 1) {
+            //i is odd
+            document.body.style.backgroundColor = "green";}
+        else {
+
+            //i is even
+            document.body.style.backgroundColor = "pink";
+        }
+        }
+        changecolor()
+
+
+      function checkTime(i) {
+        if (i<10) {i = "0" + i};
+        return i;
+      }
+
+     
+
+
+    </script>
+  </body>
+</html>
